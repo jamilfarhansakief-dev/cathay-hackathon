@@ -173,7 +173,7 @@ export default function FlightRoomPage() {
   const { user, loading } = useAuth();
 
   const code = String(params.code).toUpperCase();
-
+  const [matchRankings, setMatchRankings] = useState<CompatibilityMatch[]>([]);
   const [flight, setFlight] = useState<Flight | null>(null);
   const [flightStatus, setFlightStatus] = useState<
     "loading" | "found" | "notfound"
