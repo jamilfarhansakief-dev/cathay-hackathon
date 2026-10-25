@@ -41,6 +41,13 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 
+export function generateStaticParams() {
+  return [
+    { code: "demo" },
+    { code: "CX100-DEMO" },
+  ];
+}
+
 type Flight = {
   flightNumber: string;
   origin: string;
