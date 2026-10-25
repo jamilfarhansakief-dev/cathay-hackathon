@@ -30,3 +30,5 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     </html>
   );
 }
+
+export const dynamic = 'force-static';
