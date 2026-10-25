@@ -4,6 +4,10 @@ import { useEffect, useState, FormEvent } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import {
+  generateMatchRankingsForUser,
+  type CompatibilityMatch,
+} from "@/lib/matching";
+import {
   collection,
   doc,
   getDoc,
