@@ -439,6 +439,24 @@ export default function FlightRoomPage() {
               Room code: {code} · {passengers.length}{" "}
               {passengers.length === 1 ? "passenger" : "passengers"}
             </p>
+            {matchRankings.length > 0 && (
+              <section className="mt-6">
+                <h2 className="text-lg font-semibold">Recommended matches</h2>
+                <div className="mt-3 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {matchRankings.slice(0, 3).map((match) => (
+                    <Card key={match.matched_id}>
+                      <CardHeader>
+                        <CardTitle>{match.name}</CardTitle>
+                        <CardDescription>Compatibility score</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-2xl font-semibold">{match.score}%</p>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </section>
+            )}
 
             {error && <p className="mt-4 text-sm text-red-600">{error}</p>}
 
