@@ -240,6 +240,13 @@ export default function FlightRoomPage() {
     return () => unsubscribe();
   }, [user, code]);
 
+  useEffect(() => {
+    if (!user || passengers.length === 0) return;
+  
+    const rankings = generateMatchRankingsForUser(passengers, user.uid);
+    setMatchRankings(rankings);
+  }, [user, passengers]);
+
   // Listen to this user's chats, then keep only the ones for this flight
   useEffect(() => {
     if (!user) return;
